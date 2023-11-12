@@ -1,0 +1,68 @@
+.binary {
+  position: relative;
+  padding: 3px;
+  opacity: 1;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: greenyellow;
+  color: transparent;
+  animation: moveText var(--animation-delay) linear infinite forwards;
+}
+
+.binary-reversed {
+  padding: 3px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: greenyellow;
+  color: transparent;
+  animation: moveBinaryTopToBottom var(--animation-delay) linear infinite forwards;
+}
+
+.binary:hover {
+  font-weight: "bold";
+  color: "transparent";
+  background-clip: "text";
+  background-image: "linear-gradient(to right, #ffcc00, #ff6600)";
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+  transition: "text-shadow 0.3s ease";
+}
+
+.binary-reversed:hover {
+  font-size: "2rem";
+  font-weight: "bold";
+  color: "transparent";
+  background-clip: "text";
+  background-image: "linear-gradient(to right, #ffcc00, #ff6600)";
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+  transition: "text-shadow 0.3s ease";
+}
+
+.moving-text-wrapper {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.animation-delay {
+  animation-delay: var(--animation-delay, 10ms);
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes moveBinaryTopToBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
