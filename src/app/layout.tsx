@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${ubuntu.className} bg-[#0A0919]`}>
         <header className="sticky top-0 right-0 left-0">
-          <Navbar />
+        <Navbar />
         </header>
         {children}
       </body>
