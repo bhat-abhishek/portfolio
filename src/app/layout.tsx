@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Ubuntu_Mono, Ubuntu } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
-const ubuntu_mono = Ubuntu_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
