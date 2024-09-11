@@ -1,7 +1,7 @@
 import React from "react";
 import { Michroma } from "next/font/google";
 
-const michroma = Michroma({ subsets: ["latin", "latin-ext"], weight: ["400"] });
+export const michroma = Michroma({ subsets: ["latin", "latin-ext"], weight: ["400"] });
 
 import { SiJavascript, SiPostgresql } from "react-icons/si";
 import { FaGolang } from "react-icons/fa6";

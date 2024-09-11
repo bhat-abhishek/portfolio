@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="space-y-5 flex flex-col justify-center">
           <p className="text-2xl">Hey , I am Abhishek Bhat</p>
           <TypewriterEffectSmoothDemo />
-          <TextGenerateEffectDemo words="My passion lies with the engineering hardwares to developing softwares. Currently working as a full stack developer in the software industry from the past one year." />
+          <TextGenerateEffectDemo words="My passion lies in transitioning from working with engineering hardware to developing software. I have been working as a full-stack developer in the software industry for the past year." />
           <div className="space-x-5">
             <MovingBorderButton buttonText="Know more" />
             <MovingBorderButton buttonText="Contact" />

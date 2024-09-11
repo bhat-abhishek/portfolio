@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Ubuntu, Michroma } from "next/font/google";
+import { Ubuntu} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/footer/Footer";
@@ -8,11 +8,6 @@ const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
 });
-
-export const michroma = Michroma({
-  subsets : ['latin'],
-  weight : ['400']
-})
 
 export const metadata: Metadata = {
   title: "Abhishek Bhat",

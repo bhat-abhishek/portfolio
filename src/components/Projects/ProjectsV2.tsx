@@ -1,6 +1,6 @@
 import { projects } from "@/lib/config";
 import { HoverEffect } from "./Cardhover";
-import { michroma } from "@/app/layout";
+import { michroma } from "../Skills/Skills";
 
 const ProjectsV2 = () => {
   return (
