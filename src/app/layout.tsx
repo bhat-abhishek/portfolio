@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
+import { Ubuntu, Michroma } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
 });
+
+export const michroma = Michroma({
+  subsets : ['latin'],
+  weight : ['400']
+})
 
 export const metadata: Metadata = {
   title: "Abhishek Bhat",
@@ -20,11 +26,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${ubuntu.className} bg-[#0A0919]`}>
-        <header className="sticky top-0 right-0 left-0">
-        <Navbar />
+      <body className={`${ubuntu.className} relative bg-[#0A0919]`}>
+        <header className="">
+          <Navbar />
         </header>
         {children}
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );

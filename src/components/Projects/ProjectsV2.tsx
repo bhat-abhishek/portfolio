@@ -1,13 +1,18 @@
 import { projects } from "@/lib/config";
 import { HoverEffect } from "./Cardhover";
+import { michroma } from "@/app/layout";
 
 const ProjectsV2 = () => {
-    return <div>
-        <h2>
-            Projects
+  return (
+    <>
+      <section className="px-4">
+        <h2 className={`text-2xl lg:text-4xl ${michroma.className}`}>
+          Projects
         </h2>
         <HoverEffect items={projects} />
-    </div>
-}
+      </section>
+    </>
+  );
+};
 
 export default ProjectsV2;

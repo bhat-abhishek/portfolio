@@ -5,7 +5,7 @@ interface Props {
 }
 const BinaryLineReverse: React.FC<Props> = ({ animationDelay }) => {
   return (
-    <div className="flex flex-col items-center h-full relative whitespace-nowrap text-7xl">
+    <div className="flex select-none flex-col items-center h-full relative whitespace-nowrap text-7xl">
        <p
         style={{ "--animation-delay": animationDelay } as any}
         className={`binary-reversed`}

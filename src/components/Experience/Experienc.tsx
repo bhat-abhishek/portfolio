@@ -147,7 +147,7 @@ const Experiences  = () => {
     },
   ];
   return (
-    <div className="max-w-[1400px]">
+    <div className="px-4">
       <Timeline data={data} />
     </div>
   );

@@ -1,5 +1,6 @@
 "use client";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
+
 export function TypewriterEffectSmoothDemo() {
     const words = [
         {
@@ -14,10 +15,8 @@ export function TypewriterEffectSmoothDemo() {
         },
     ];
     return (
-        <div className="flex flex-col items-center justify-center">
-
+        <div className="flex flex-col">
             <TypewriterEffectSmooth words={words} />
-
         </div>
     );
 }
