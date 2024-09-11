@@ -15,6 +15,9 @@ import {
   SiKubernetes,
 } from "react-icons/si";
 
+import { GlobeDemo } from "./Globe";
+
+
 
 const Skills = () => {
   return (
@@ -69,6 +72,7 @@ const Skills = () => {
             <p>Kubernetes</p>
           </div>
         </div>
+        <GlobeDemo/>
       </div>
     </section>
   );
