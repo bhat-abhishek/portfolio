@@ -6,7 +6,7 @@ interface Props {
 const BinaryLine: React.FC<Props> = ({ animationDelay }) => {
     console.log(animationDelay)
   return (
-    <div className="flex flex-col items-center justify-center whitespace-nowrap text-7xl">
+    <div className="flex select-none flex-col items-center justify-center whitespace-nowrap text-7xl">
        <p
         style={{ "--animation-delay": animationDelay,
         "--opacity-val" : 0.2,

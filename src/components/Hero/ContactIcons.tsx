@@ -3,75 +3,54 @@ import { FloatingDock } from "../ui/FloatingDock";
 
 import {
   IconBrandGithub,
-  IconBrandX,
-  IconExchange,
-  IconHome,
-  IconNewSection,
-  IconTerminal2,
+  IconBrandReddit,
+  IconBrandLeetcode,
+  IconBrandLinkedin,
+  IconBrandMedium
 } from "@tabler/icons-react";
 import Image from "next/image";
+import { title } from "process";
 
 const ContactIcons = () => {
   const links = [
     {
-      title: "Home",
+      title: "LinkedIn",
       icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
-    },
-
-    {
-      title: "Products",
-      icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    {
-      title: "Components",
-      icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    {
-      title: "Aceternity UI",
-      icon: (
-        <Image
-          src="https://assets.aceternity.com/logo-dark.png"
-          width={20}
-          height={20}
-          alt="Aceternity Logo"
-        />
-      ),
-      href: "#",
-    },
-    {
-      title: "Changelog",
-      icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-
-    {
-      title: "Twitter",
-      icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
+      href: "https://www.linkedin.com/in/bhatabhishek/",
     },
     {
       title: "GitHub",
       icon: (
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://github.com/Abhi-Bhat18",
+    },
+    {
+      title: "Medium",
+      icon: (
+        <IconBrandMedium className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://medium.com/@bhatabhishek-ylp",
+    },
+    {
+      title: "Leetcode",
+      icon: (
+        <IconBrandLeetcode className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://leetcode.com/u/Abhi-Bhat18/",
+    },
+    {
+      title: "Reddit",
+      icon: (
+        <IconBrandReddit className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://www.reddit.com/user/Kind-Attempt8181/",
     },
   ];
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex justify-start w-full">
       <FloatingDock
         mobileClassName="translate-y-20"
         items={links}
