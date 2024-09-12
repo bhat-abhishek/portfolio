@@ -1,13 +1,13 @@
 import React from "react";
 import TextRevealCardPreview from "./TextReveal";
 import ContactForm from "./ContactForm";
+import { michroma } from "../Skills/Skills";
 
 const Contact = () => {
   return (
-    <div className="max-w-[1400px] flex flex-col lg:flex-row my-10">
+    <div className="max-w-[1400px] flex flex-col lg:flex-row my-10 px-4 space-y-5">
       <div className="lg:basis-1/2">
-      <p className="">You know the business</p>
-      <p className="first-letter:text-7xl">I know the Technology</p>
+      <p className={`${michroma.className} text-2xl md:text-4xl lg:text-7xl`}>Get in touch</p>
       </div>
       <div className="lg:basis-1/2">
         <ContactForm />

@@ -20,11 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${ubuntu.className} relative bg-[#0A0919]`}>
-        <header className="">
-          <Navbar />
-        </header>
         {children}
         <footer>
           <Footer />

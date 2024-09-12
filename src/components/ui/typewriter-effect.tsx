@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
+import { michroma } from "../Skills/Skills";
 
 export const TypewriterEffect = ({
   words,
@@ -157,7 +158,7 @@ export const TypewriterEffectSmooth = ({
         }}
       >
         <div
-          className="text-3xl font-bold"
+          className={`text-2xl lg:text-3xl font-bold ${michroma.className}`}
           style={{
             whiteSpace: "nowrap",
           }}
@@ -178,7 +179,7 @@ export const TypewriterEffectSmooth = ({
           repeatType: "reverse",
         }}
         className={cn(
-          "block rounded-sm w-[4px] bg-blue-500",
+          `block  rounded-sm w-[4px] bg-blue-500`,
           cursorClassName
         )}
       ></motion.span>

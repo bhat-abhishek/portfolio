@@ -5,12 +5,12 @@ import { michroma } from "../Skills/Skills";
 const ProjectsV2 = () => {
   return (
     <>
-      <section className="px-4">
+      <div className="px-4 pt-20">
         <h2 className={`text-2xl lg:text-4xl ${michroma.className}`}>
           Projects
         </h2>
         <HoverEffect items={projects} />
-      </section>
+      </div>
     </>
   );
 };

@@ -8,7 +8,8 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
-  title: string;
+  company: string;
+  role : string;
   content: React.ReactNode;
 }
 
@@ -33,20 +34,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div
-      className="w-full dark:bg-neutral-950"
-      ref={containerRef}
-    >
-      <div className="mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 dark:text-white max-w-4xl">
+    <div className="w-full dark:bg-neutral-950" ref={containerRef}>
+      <div className="py-20">
+        <h2 className="text-lg md:text-4xl mb-4 dark:text-white">
           Changelog from my journey
         </h2>
         <p className=" dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          I&apos;ve been working as a professional software developer for the past 2 years. Here&apos;s
-          a timeline of my journey.
+          I&apos;ve been working as a professional software developer for the
+          past 2 years. Here&apos;s a timeline of my journey.
         </p>
       </div>
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative pb-20">
         {data.map((item, index) => (
           <div
             key={index}
@@ -56,14 +54,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
-                {item.title}
-              </h3>
+              <div>
+                <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
+                  {item.company}
+                </h3>
+                <p className="hidden md:block text-lg md:pl-20 font-bold text-neutral-500 dark:text-neutral-500">
+                  { item.role}
+                </p>
+              </div>
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
               <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
-                {item.title}
+                {item.company}
               </h3>
               {item.content}{" "}
             </div>

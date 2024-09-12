@@ -66,3 +66,53 @@
     transform: translateY(-100%);
   }
 }
+
+
+
+/* typewriter.css */
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid black; /* Blinking cursor */
+  white-space: nowrap;
+  width: 0;
+  animation: typewriter 3s steps(30, end) forwards, blink 1s step-end infinite;
+}
+
+.typewriter-container {
+  display: inline-block;
+  position: relative;
+}
+
+.typewriter {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.typewriter:nth-child(1) {
+  animation: typewriter 3s steps(30, end) 0s infinite, blink 1s step-end infinite;
+}
+
+.typewriter:nth-child(2) {
+  animation: typewriter 3s steps(30, end) 3s infinite, blink 1s step-end infinite;
+}
+
+.typewriter:nth-child(3) {
+  animation: typewriter 3s steps(30, end) 6s infinite, blink 1s step-end infinite;
+}
+

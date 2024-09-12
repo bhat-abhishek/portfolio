@@ -5,7 +5,8 @@ import { Timeline } from '../../components/ui/timeline'
 const Experiences  = () => {
   const data = [
     {
-      title: "FWC Inc",
+      company: "FWC Inc",
+      role : 'Software Developer',
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -45,7 +46,8 @@ const Experiences  = () => {
       ),
     },
     {
-      title: "Technolab Softwares",
+      company: "Technolab Softwares",
+      role : 'Machine learning engineer intern',
       content: (
         <div>
           <p className="dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -89,7 +91,8 @@ const Experiences  = () => {
       ),
     },
     {
-      title: "IEEE Photonics Society India",
+      company: "IEEE Photonics Society India",
+      role : 'Webmaster', 
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
@@ -146,6 +149,7 @@ const Experiences  = () => {
       ),
     },
   ];
+
   return (
     <div className="px-4">
       <Timeline data={data} />
