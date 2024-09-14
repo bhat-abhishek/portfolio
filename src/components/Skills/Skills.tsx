@@ -1,7 +1,10 @@
 import React from "react";
 import { Michroma } from "next/font/google";
 
-export const michroma = Michroma({ subsets: ["latin", "latin-ext"], weight: ["400"] });
+export const michroma = Michroma({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400"],
+});
 
 import { SiJavascript, SiPostgresql } from "react-icons/si";
 import { FaGolang } from "react-icons/fa6";
@@ -74,12 +77,10 @@ const Skills = () => {
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-3 lg:basis-1/2 ">
           {techSkills.map((skill, index) => {
             return (
-              <>
                 <div key={index} className="flex space-x-2 items-center">
                   {skill.icon}
                   <p> {skill.name}</p>
                 </div>
-              </>
             );
           })}
         </div>

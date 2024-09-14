@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+        import { IconExternalLink } from "@tabler/icons-react";
 
 export const HoverEffect = ({
   items,
@@ -26,6 +27,7 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <Link
+          target="__blank"
           href={item?.link}
           key={idx}
           className="relative group block  h-full w-full"
@@ -77,11 +79,15 @@ export const Card = ({
       }}
     >
       <div className="relative z-50">
+        <div className="w-full absolute flex justify-end">
+          <IconExternalLink />
+        </div>
         <div className="p-4">{children}</div>
       </div>
     </div>
   );
 };
+
 export const CardTitle = ({
   className,
   children,

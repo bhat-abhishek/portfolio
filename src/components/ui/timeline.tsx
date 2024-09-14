@@ -6,16 +6,18 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { michroma } from "../Skills/Skills";
 
 interface TimelineEntry {
   company: string;
-  role : string;
+  role: string;
   content: React.ReactNode;
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
@@ -36,12 +38,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div className="w-full dark:bg-neutral-950" ref={containerRef}>
       <div className="py-20">
-        <h2 className="text-lg md:text-4xl mb-4 dark:text-white">
-          Changelog from my journey
+        <h2
+          className={`text-lg md:text-4xl mb-4 dark:text-white ${michroma.className}`}
+        >
+          A Journey Through Code
         </h2>
         <p className=" dark:text-neutral-300 text-sm md:text-base max-w-sm">
           I&apos;ve been working as a professional software developer for the
-          past 2 years. Here&apos;s a timeline of my journey.
+          past one year. Here&apos;s a timeline of my journey.
         </p>
       </div>
       <div ref={ref} className="relative pb-20">
@@ -59,7 +63,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   {item.company}
                 </h3>
                 <p className="hidden md:block text-lg md:pl-20 font-bold text-neutral-500 dark:text-neutral-500">
-                  { item.role}
+                  {item.role}
                 </p>
               </div>
             </div>

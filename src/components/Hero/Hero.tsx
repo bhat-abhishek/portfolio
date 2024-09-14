@@ -15,11 +15,16 @@ import { HoverBorderGradientButton } from "./HoverBorderButton";
 const Hero = () => {
 
   const [mobileView, setMobileView] = useState(false);
+  const [opactiy, setOpacity] = useState('opacity-20');
 
   useEffect(() => {
     // Function to handle window resize and update state
     const handleResize = () => {
-      setMobileView(window.innerWidth <= 768); // Adjust breakpoint as needed
+      setMobileView(window.innerWidth <= 768); 
+      
+      if(window.innerWidth > 768) { 
+        setOpacity('opacity-100')
+      }
     };
 
     // Add event listener
@@ -38,14 +43,7 @@ const Hero = () => {
         <div className="space-y-5 flex flex-col justify-center">
           <p className="text-2xl">Hey , I am Abhishek Bhat</p>
           <TypewriterEffectSmoothDemo />
-          {/* <div className="text-4xl font-bold text-center">
-            <div className="typewriter-container">
-              <div className="typewriter">Innovation.</div>
-              <div className="typewriter">Growth.</div>
-              <div className="typewriter">Success.</div>
-            </div>
-          </div> */}
-          <TextGenerateEffectDemo words="My passion lies in transitioning from working with engineering hardware to developing software. I have been working as a full-stack developer in the software industry for the past year." />
+          <TextGenerateEffectDemo words="My passion lies in crafting elegant digital solutions that seamlessly blend form and function. With an insatiable curiosity for technology, I transform ideas into powerful, user-centric applications" />
           <div className="space-x-5">
             <MovingBorderButton buttonText="Know more" />
           </div>
@@ -53,9 +51,7 @@ const Hero = () => {
         <ContactIcons />
       </div>
       <div
-        className={`absolute -z-10 w-full lg:relative lg:flex lg:basis-1/2 justify-end space-x-3 ${
-          mobileView ? "opacity-20" : "opacity-100"
-        }`}
+        className={`absolute -z-10 lg:z-0 w-full lg:relative lg:flex lg:basis-1/2 justify-end space-x-3  ${opactiy}`}
       >
         <div className="flex max-h-[90vh] lg:max-h-[80vh] justify-end w-full overflow-hidden">
           <BinaryLine animationDelay="0.9s" />

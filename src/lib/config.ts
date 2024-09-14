@@ -1,33 +1,36 @@
-import { title } from "process";
-
 export const projects = [
   {
     title: "Logwiz",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+      "Javascript based logging library for frontend web frameworks for ReactJs, NextJs and etc. Supports batch update and failover mechanism",
+    link: "https://www.npmjs.com/package/logwiz",
   },
   {
     title: "Mail man",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+      "Open source alternative for the AWS Simple Email Service which provides additional analytics like delivery,open rate and many more",
+    link: "/",
   },
   {
-    title: "Browser implementaion in Go",
-    description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+    title: "Proxy Browser",
+    description: "A simple implementation of browser for web scrapping which supports proxying",
+    link: "/",
   },
   {
     title: "Verilog Compiler",
-    description: "Verilog is a hardware description language",
-    link : ''
+    description:
+      "Browser based compiler for subset of Verilog( Hardware Description Language), which utilizes Web Assembly",
+    link: "/",
+  },
+  {
+    title: "Chatting Application",
+    description: "Highly scalable chatting application with MicroServices architecture and utilizes K8's",
+    link: "/",
   },
   {
     title: "Portfolio",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+      "Personal portfolio websie",
+    link: "https://abhishekbhat.com",
   },
 ];
