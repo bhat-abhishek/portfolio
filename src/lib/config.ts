@@ -1,36 +1,37 @@
 export const projects = [
   {
+    title: "Campster",
+    description:
+      "Open source marketing campaign tool built for cross functional teams",
+    link: "mailman-nine.vercel.app",
+  },
+  {
     title: "Logwiz",
     description:
       "Javascript based logging library for frontend web frameworks for ReactJs, NextJs and etc. Supports batch update and failover mechanism",
     link: "https://www.npmjs.com/package/logwiz",
   },
   {
-    title: "Mail man",
+    title: "Juke Stream",
     description:
-      "Open source alternative for the AWS Simple Email Service which provides additional analytics like delivery,open rate and many more",
-    link: "/",
+      "A simple implementation of browser for web scrapping which supports proxying",
+    link: "https://github.com/bhat-abhishek/Juke-Stream",
   },
-  {
-    title: "Proxy Browser",
-    description: "A simple implementation of browser for web scrapping which supports proxying",
-    link: "/",
-  },
-  {
-    title: "Verilog Compiler",
-    description:
-      "Browser based compiler for subset of Verilog( Hardware Description Language), which utilizes Web Assembly",
-    link: "/",
-  },
+  // {
+  //   title: "Verilog Compiler",
+  //   description:
+  //     "Browser based compiler for subset of Verilog( Hardware Description Language), which utilizes Web Assembly",
+  //   link: "/",
+  // },
   {
     title: "Chatting Application",
-    description: "Highly scalable chatting application with MicroServices architecture and utilizes K8's",
-    link: "/",
+    description:
+      "Highly scalable chatting application with MicroServices architecture",
+    link: "https://github.com/bhat-abhishek/chat-app",
   },
   {
     title: "Portfolio",
-    description:
-      "Personal portfolio websie",
+    description: "Personal portfolio websie",
     link: "https://abhishekbhat.com",
   },
 ];

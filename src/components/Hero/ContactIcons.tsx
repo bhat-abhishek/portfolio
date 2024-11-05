@@ -25,7 +25,7 @@ const ContactIcons = () => {
       icon: (
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "https://github.com/Abhi-Bhat18",
+      href: "https://github.com/bhat-abhishek",
     },
     {
       title: "Medium",
@@ -40,13 +40,6 @@ const ContactIcons = () => {
         <IconBrandLeetcode className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "https://leetcode.com/u/Abhi-Bhat18/",
-    },
-    {
-      title: "Reddit",
-      icon: (
-        <IconBrandReddit className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://www.reddit.com/user/Kind-Attempt8181/",
     },
   ];
   return (
