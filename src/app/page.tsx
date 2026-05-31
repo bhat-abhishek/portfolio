@@ -1,12 +1,13 @@
 "use client";
 import Hero from "@/components/Hero/Hero";
+import About from "@/components/About/About";
 import Skills from "@/components/Skills/Skills";
 import Contact from "@/components/Contact/Contact";
 import ProjectsV2 from "@/components/Projects/Projects";
 import Experiences from "@/components/Experience/Experience";
 import Navbar from "@/components/Navbar/Navbar";
 import "../components/Navbar/navlink.styles.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
@@ -23,7 +24,11 @@ export default function Home() {
         });
       },
       {
-        threshold: 0.6, // Adjust based on when you want to consider a section in view
+        // Center-band scroll-spy: whichever section crosses the middle of the
+        // viewport is "active". Robust for both short (Hero/About) and very
+        // tall (Experience timeline) sections.
+        threshold: 0,
+        rootMargin: "-45% 0px -45% 0px",
       }
     );
 
@@ -38,40 +43,28 @@ export default function Home() {
     };
   }, []);
 
-  const homeRef = useRef<HTMLElement | null>(null);
-  const skillsRef = useRef<HTMLElement | null>(null);
-  const projectsRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const el = document.getElementById(activeSection);
-
-    if (el) {
-      el.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, [activeSection]);
-
   return (
     <>
       <header>
         <Navbar activeSection={activeSection} />
       </header>
-      <main className="text-[#66fcf1] max-w-[1400px] mx-auto relative scroll-smooth overflow-y-auto overflow-hidden">
-        <section id="home" key={1}>
+      <main className="text-foreground max-w-[1400px] mx-auto relative scroll-smooth overflow-y-auto overflow-hidden">
+        <section id="home" key="home">
           <Hero />
         </section>
-        <section id="skills" key={2}>
-          <Skills />
+        <section id="about" key="about">
+          <About />
         </section>
-        <section id="projects" key={3}>
-          <ProjectsV2 />
-        </section>
-        <section id="experience" key={4}>
+        <section id="experience" key="experience">
           <Experiences />
         </section>
-        <section id="contact" key={5}>
+        <section id="projects" key="projects">
+          <ProjectsV2 />
+        </section>
+        <section id="skills" key="skills">
+          <Skills />
+        </section>
+        <section id="contact" key="contact">
           <Contact />
         </section>
       </main>

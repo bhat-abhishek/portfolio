@@ -1,55 +1,33 @@
 import React from "react";
 import { FloatingDock } from "../ui/FloatingDock";
+import { socials } from "@/lib/config";
 
 import {
   IconBrandGithub,
-  IconBrandReddit,
   IconBrandLeetcode,
   IconBrandLinkedin,
-  IconBrandMedium
+  IconBrandMedium,
 } from "@tabler/icons-react";
-import Image from "next/image";
-import { title } from "process";
+
+const iconMap: Record<string, React.ReactNode> = {
+  github: <IconBrandGithub className="h-full w-full text-muted-foreground" />,
+  linkedin: <IconBrandLinkedin className="h-full w-full text-muted-foreground" />,
+  medium: <IconBrandMedium className="h-full w-full text-muted-foreground" />,
+  leetcode: <IconBrandLeetcode className="h-full w-full text-muted-foreground" />,
+};
 
 const ContactIcons = () => {
-  const links = [
-    {
-      title: "LinkedIn",
-      icon: (
-        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://www.linkedin.com/in/bhatabhishek/",
-    },
-    {
-      title: "GitHub",
-      icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://github.com/bhat-abhishek",
-    },
-    {
-      title: "Medium",
-      icon: (
-        <IconBrandMedium className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://medium.com/@bhatabhishek-ylp",
-    },
-    {
-      title: "Leetcode",
-      icon: (
-        <IconBrandLeetcode className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://leetcode.com/u/Abhi-Bhat18/",
-    },
-  ];
+  const links = socials.map((social) => ({
+    title: social.label,
+    icon: iconMap[social.icon],
+    href: social.href,
+  }));
+
   return (
     <div className="flex justify-start w-full">
-      <FloatingDock
-        mobileClassName="translate-y-20"
-        items={links}
-      />
+      <FloatingDock mobileClassName="translate-y-20" items={links} />
     </div>
   );
-}
+};
 
 export default ContactIcons;

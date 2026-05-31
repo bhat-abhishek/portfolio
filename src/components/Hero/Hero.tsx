@@ -1,69 +1,93 @@
-'use client'
-import React, { useState, useEffect } from "react";
-import { Michroma } from "next/font/google";
-import "./hero.styles.css";
-import BinaryLine from "./BinaryLine";
-import BinaryLineReverse from "./BinaryLineReverse";
-const michroma = Michroma({ subsets: ["latin"], weight: ["400"] });
-
+"use client";
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { profile } from "@/lib/config";
+import { Button } from "@/components/ui/button";
 import ContactIcons from "./ContactIcons";
-import TextGenerateEffectDemo from "./TextGenerate";
-import { TypewriterEffectSmoothDemo } from "./Title";
-import MovingBorderButton from "./Button";
-import { HoverBorderGradientButton } from "./HoverBorderButton";
+import Terminal from "./Terminal";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 18 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] },
+  },
+};
 
 const Hero = () => {
-
-  const [mobileView, setMobileView] = useState(false);
-  const [opactiy, setOpacity] = useState('opacity-20');
-
-  useEffect(() => {
-    // Function to handle window resize and update state
-    const handleResize = () => {
-      setMobileView(window.innerWidth <= 768); 
-      
-      if(window.innerWidth > 768) { 
-        setOpacity('opacity-100')
-      }
-    };
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-    // Initial check
-    handleResize();
-
-    // Clean up event listener
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-
   return (
-    <div className="relative px-4 flex lg:pt-16 pb-10">
-      <div className="w-full pt-10 flex z-10 flex-col justify-center space-y-10 lg:basis-1/2">
-        <div className="space-y-5 flex flex-col justify-center">
-          <p className="text-2xl">Hey , I am Abhishek Bhat</p>
-          <TypewriterEffectSmoothDemo />
-          <TextGenerateEffectDemo words="My passion lies in crafting elegant digital solutions that seamlessly blend form and function. With an insatiable curiosity for technology, I transform ideas into powerful, user-centric applications" />
-          <div className="space-x-5">
-            <MovingBorderButton buttonText="Know more" />
-          </div>
-        </div>
-        <ContactIcons />
-      </div>
-      <div
-        className={`absolute -z-10 lg:z-0 w-full lg:relative lg:flex lg:basis-1/2 justify-end space-x-3  ${opactiy}`}
-      >
-        <div className="flex max-h-[90vh] lg:max-h-[80vh] justify-end w-full overflow-hidden">
-          <BinaryLine animationDelay="0.9s" />
-          <BinaryLineReverse animationDelay="0.8s" />
-          <BinaryLine animationDelay="0.7s" />
-          <BinaryLineReverse animationDelay="0.6s" />
-          <BinaryLine animationDelay="0.5s" />
-          <BinaryLineReverse animationDelay="0.7s" />
-          <BinaryLine animationDelay="0.7s" />
-          <BinaryLineReverse animationDelay="0.8s" />
-          <BinaryLine animationDelay="0.9s" />
-        </div>
+    <div className="flex min-h-[92vh] flex-col justify-center px-4 pt-24 pb-16 lg:pt-28">
+      <div className="flex flex-col gap-12 lg:flex-row lg:items-center">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="space-y-7 lg:basis-3/5"
+        >
+          <motion.p
+            variants={item}
+            className="font-serif text-2xl italic text-muted-foreground"
+          >
+            Hi, I&apos;m {profile.name}
+          </motion.p>
+
+          <motion.h1
+            variants={item}
+            className="font-display text-5xl font-medium leading-[1.04] tracking-tight text-foreground md:text-6xl lg:text-7xl"
+          >
+            {profile.role}
+          </motion.h1>
+
+          <motion.p
+            variants={item}
+            className="max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
+          >
+            {profile.tagline}
+          </motion.p>
+
+          <motion.div
+            variants={item}
+            className="flex flex-wrap items-center gap-4 pt-1"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full px-7 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift"
+            >
+              <Link href="#contact">Get in touch</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-full border-border bg-transparent px-7 transition-all hover:-translate-y-0.5"
+            >
+              <Link href="#projects">View work</Link>
+            </Button>
+          </motion.div>
+
+          <motion.div variants={item} className="pt-4">
+            <ContactIcons />
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="w-full lg:basis-2/5"
+        >
+          <Terminal />
+        </motion.div>
       </div>
     </div>
   );

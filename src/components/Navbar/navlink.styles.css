@@ -3,13 +3,18 @@
   content: "";
   height: 2px;
   width: 0%;
-  background: #66fcf1;
+  background: hsl(var(--accent));
   visibility: hidden;
 }
 
 .nav-link:hover::after {
   visibility: visible;
   animation: widen-tab 0.3s linear 0.1s 1 forwards;
+}
+
+.nav-link.active::after {
+  visibility: visible;
+  width: 100%;
 }
 
 @keyframes widen-tab {

@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
 
-import { Ubuntu} from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/components/footer/Footer";
-
-const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
-
+import AmbientBackground from "@/components/ui/AmbientBackground";
+import { sans, display, serif } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "Abhishek Bhat",
-  description: "Portfolio of Abhishek Bhat. Software developer",
+  title: "Abhishek Bhat — Full Stack Developer",
+  description:
+    "Portfolio of Abhishek Bhat, a full stack developer building scalable backends and clean, fast web apps.",
 };
+
+// Dark is the default. Only opt out if the visitor explicitly chose light.
+const themeScript = `try{if(localStorage.getItem('theme')==='light'){document.documentElement.classList.remove('dark')}}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -22,9 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${ubuntu.className} relative bg-[#0A0919]`}>
-        <Analytics/>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`dark scroll-smooth ${sans.variable} ${display.variable} ${serif.variable}`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="relative bg-background font-sans antialiased">
+        <AmbientBackground />
+        <Analytics />
         {children}
         <footer>
           <Footer />
