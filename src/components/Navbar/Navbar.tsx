@@ -18,6 +18,7 @@ const DesktopNav: React.FC<Props> = ({ activeSection }) => {
         <NavLink navigation="experience" activeSection={activeSection} />
         <NavLink navigation="projects" activeSection={activeSection} />
         <NavLink navigation="skills" activeSection={activeSection} />
+        <NavLink navigation="writing" activeSection={activeSection} href="/blog" />
         <NavLink navigation="contact" activeSection={activeSection} />
         <ThemeToggle />
       </div>
@@ -46,6 +47,7 @@ const MobileNav: React.FC<Props> = ({ activeSection }) => {
           <NavLink navigation="experience" activeSection={activeSection} />
           <NavLink navigation="projects" activeSection={activeSection} />
           <NavLink navigation="skills" activeSection={activeSection} />
+          <NavLink navigation="writing" activeSection={activeSection} href="/blog" />
           <NavLink navigation="contact" activeSection={activeSection} />
         </nav>
       )}

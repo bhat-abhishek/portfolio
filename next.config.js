@@ -2,6 +2,13 @@
 const nextConfig = {
     images: {
         domains: ['assets.aceternity.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**.supabase.co',
+                pathname: '/storage/v1/object/public/**',
+            },
+        ],
     }
 }
 

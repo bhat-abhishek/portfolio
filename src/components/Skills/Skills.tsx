@@ -4,41 +4,52 @@ import { motion } from "framer-motion";
 import SectionHeading from "../ui/SectionHeading";
 import Reveal from "../ui/Reveal";
 
-import { SiJavascript, SiPostgresql } from "react-icons/si";
-import { FaGolang } from "react-icons/fa6";
+import { skills } from "@/lib/config";
+import type { IconType } from "react-icons";
 import {
   SiPython,
+  SiTypescript,
+  SiGo,
+  SiFastapi,
+  SiNestjs,
   SiNextdotjs,
-  SiRedux,
-  SiMongodb,
+  SiApachekafka,
   SiRedis,
+  SiPostgresql,
+  SiMongodb,
+  SiClickhouse,
+  SiOpentelemetry,
   SiDocker,
-  SiReact,
-  SiKubernetes,
+  SiTerraform,
 } from "react-icons/si";
 
-const techSkills = [
-  { name: "JavaScript", icon: <SiJavascript className="text-2xl" /> },
-  { name: "Golang", icon: <FaGolang className="text-2xl" /> },
-  { name: "Python", icon: <SiPython className="text-2xl" /> },
-  { name: "React", icon: <SiReact className="text-2xl" /> },
-  { name: "NextJs", icon: <SiNextdotjs className="text-2xl" /> },
-  { name: "ReduxJs", icon: <SiRedux className="text-2xl" /> },
-  { name: "MongoDB", icon: <SiMongodb className="text-2xl" /> },
-  { name: "PostgreSQL", icon: <SiPostgresql className="text-2xl" /> },
-  { name: "Redis", icon: <SiRedis className="text-2xl" /> },
-  { name: "Docker", icon: <SiDocker className="text-2xl" /> },
-  { name: "Kubernetes", icon: <SiKubernetes className="text-2xl" /> },
-];
+const ICONS: Record<(typeof skills)[number]["icon"], IconType> = {
+  python: SiPython,
+  typescript: SiTypescript,
+  go: SiGo,
+  fastapi: SiFastapi,
+  nestjs: SiNestjs,
+  nextjs: SiNextdotjs,
+  kafka: SiApachekafka,
+  redis: SiRedis,
+  postgresql: SiPostgresql,
+  mongodb: SiMongodb,
+  clickhouse: SiClickhouse,
+  opentelemetry: SiOpentelemetry,
+  docker: SiDocker,
+  terraform: SiTerraform,
+};
 
 const Skills = () => {
   return (
     <div className="px-4 py-24 lg:py-28">
       <Reveal>
-        <SectionHeading label="Toolkit" title="Tech I work with" />
+        <SectionHeading section="skills" />
       </Reveal>
       <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-        {techSkills.map((skill, index) => (
+        {skills.map((skill, index) => {
+          const Icon = ICONS[skill.icon];
+          return (
           <motion.div
             key={skill.name}
             initial={{ opacity: 0, y: 18 }}
@@ -49,16 +60,17 @@ const Skills = () => {
               delay: Math.min(index * 0.04, 0.3),
               ease: [0.21, 0.47, 0.32, 0.98],
             }}
-            className="group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lift"
+            className="group flex items-center gap-3 rounded-md border border-border bg-card px-4 py-3.5 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lift"
           >
             <span className="text-foreground/70 transition-colors duration-300 group-hover:text-accent">
-              {skill.icon}
+              <Icon className="text-2xl" aria-hidden />
             </span>
-            <span className="font-display text-sm text-foreground">
+            <span className="font-mono text-sm text-foreground">
               {skill.name}
             </span>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className="px-4 py-24 lg:py-28">
       <Reveal>
-        <SectionHeading label="About" title="A bit about me" />
+        <SectionHeading section="about" />
       </Reveal>
       <div className="mt-10 max-w-2xl space-y-6">
         {about.paragraphs.map((paragraph, index) => (

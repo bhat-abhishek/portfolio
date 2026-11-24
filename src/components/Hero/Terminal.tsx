@@ -1,16 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { terminalScript, terminalMeta } from "@/lib/config";
 
-type Line = { kind: "cmd" | "out" | "ok"; text: string };
-
-const SCRIPT: Line[] = [
-  { kind: "cmd", text: "whoami" },
-  { kind: "out", text: "abhishek, full stack software developer" },
-  { kind: "cmd", text: "cat focus.txt" },
-  { kind: "out", text: "backend · distributed systems · ai agents" },
-  { kind: "cmd", text: "deploy --cloud aws,azure" },
-  { kind: "ok", text: "shipped with zero downtime" },
-];
+type Line = (typeof terminalScript)[number];
+const SCRIPT: readonly Line[] = terminalScript;
 
 // commands type like a human; output prints faster like a machine
 const TYPE_SPEED: Record<Line["kind"], number> = { cmd: 45, out: 20, ok: 20 };
@@ -18,7 +11,7 @@ const TYPE_SPEED: Record<Line["kind"], number> = { cmd: 45, out: 20, ok: 20 };
 const PAUSE_AFTER: Record<Line["kind"], number> = { cmd: 380, out: 650, ok: 650 };
 
 const Cursor = () => (
-  <span className="ml-0.5 inline-block h-[1.05em] w-[0.55ch] translate-y-[2px] animate-pulse rounded-[1px] bg-accent align-middle" />
+  <span className="ml-0.5 inline-block h-[1.05em] w-[0.55ch] translate-y-[2px] animate-pulse bg-accent motion-reduce:animate-none align-middle" />
 );
 
 const Terminal = () => {
@@ -53,19 +46,18 @@ const Terminal = () => {
   const visible = SCRIPT.slice(0, done ? SCRIPT.length : step + 1);
 
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-card shadow-soft">
-      {/* window chrome */}
-      <div className="flex items-center gap-2 border-b border-border bg-muted/60 px-4 py-3">
-        <span className="h-3 w-3 rounded-full bg-red-400/80" />
-        <span className="h-3 w-3 rounded-full bg-amber-400/80" />
-        <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
-        <span className="ml-2 font-mono text-xs text-muted-foreground">
-          abhishek@portfolio: ~
+    <div className="chip-frame overflow-hidden rounded-lg border border-border bg-card shadow-soft">
+      {/* serial console header */}
+      <div className="flex items-center justify-between border-b border-border bg-muted/60 px-4 py-2.5 pl-7 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+        <span>{terminalMeta.port}</span>
+        <span className="flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden="true" />
+          {terminalMeta.status}
         </span>
       </div>
 
       {/* body */}
-      <div className="min-h-[268px] space-y-2 p-5 font-mono text-sm leading-relaxed">
+      <div className="min-h-[236px] space-y-2 p-5 font-mono text-sm leading-relaxed">
         {visible.map((line, i) => {
           const active = i === step && !done;
           const text = active ? line.text.slice(0, chars) : line.text;
@@ -82,7 +74,7 @@ const Terminal = () => {
           if (line.kind === "ok") {
             return (
               <div key={i} className="text-muted-foreground">
-                <span className="mr-2 text-emerald-600 dark:text-emerald-400">✓</span>
+                <span className="mr-2 text-signal">✓</span>
                 {text}
                 {active && <Cursor />}
               </div>

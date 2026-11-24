@@ -7,7 +7,7 @@ const Projects = () => {
   return (
     <div className="px-4 py-24 lg:py-28">
       <Reveal>
-        <SectionHeading label="Work" title="Selected projects" />
+        <SectionHeading section="projects" />
       </Reveal>
       <div className="mt-10">
         <ProjectsGrid items={projects} />

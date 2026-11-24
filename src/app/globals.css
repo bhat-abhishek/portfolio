@@ -2,72 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design system: "Silicon Datasheet" — see DESIGN.md.
+   Light = printed datasheet paper. Dark (default) = die / PCB under lab light. */
+
 @layer base {
   :root {
-    /* surfaces — warm editorial paper */
-    --background:           40 33% 96%;
-    --foreground:           24 12% 12%;
+    --font-display: var(--font-geist-sans);
 
-    --card:                 42 50% 99%;
-    --card-foreground:      24 12% 12%;
+    /* surfaces — datasheet paper */
+    --background:           45 27% 94%;   /* #F4F2EC */
+    --foreground:           150 10% 8%;   /* #121614 */
 
-    --popover:              42 50% 99%;
-    --popover-foreground:   24 12% 12%;
+    --card:                 48 38% 97%;   /* #FBFAF6 */
+    --card-foreground:      150 10% 8%;
+
+    --popover:              48 38% 97%;
+    --popover-foreground:   150 10% 8%;
 
     /* actions */
-    --primary:              24 12% 14%;
-    --primary-foreground:   40 33% 97%;
+    --primary:              150 10% 8%;
+    --primary-foreground:   45 27% 96%;
 
-    --secondary:            40 25% 92%;
-    --secondary-foreground: 24 12% 14%;
+    --secondary:            45 22% 89%;
+    --secondary-foreground: 150 10% 8%;
 
     /* utility */
-    --muted:                40 25% 93%;
-    --muted-foreground:     28 9% 40%;
+    --muted:                45 22% 89%;   /* #EAE7DE */
+    --muted-foreground:     144 5% 36%;   /* #56605A — 5.8:1 on bg */
 
-    /* indigo-blue accent — links, nav active, hover, focus */
-    --accent:               224 70% 50%;
-    --accent-foreground:    40 33% 98%;
+    /* copper — links, nav active, hover, focus (4.97:1 on bg) */
+    --accent:               23 71% 38%;   /* #A4511C */
+    --accent-foreground:    45 27% 96%;
 
-    --destructive:          0 72% 50%;
-    --destructive-foreground: 40 33% 98%;
+    /* scope-trace green — live / ok states only */
+    --signal:               152 63% 28%;
+    --signal-foreground:    45 27% 96%;
 
-    --border:               36 24% 87%;
-    --input:                36 24% 87%;
-    --ring:                 224 70% 50%;
+    --destructive:          0 72% 45%;
+    --destructive-foreground: 45 27% 96%;
 
-    --radius: 0.75rem;
+    --border:               46 15% 83%;   /* #D9D6CC */
+    --input:                46 15% 83%;
+    --ring:                 23 71% 38%;
+
+    /* PCB dot-pitch grid */
+    --grid-dot:             150 10% 8% / 0.09;
+
+    --radius: 0.25rem;
   }
 
   .dark {
-    --background:           24 12% 8%;
-    --foreground:           40 30% 92%;
+    --background:           150 15% 5%;   /* #0B0F0D solder-mask black */
+    --foreground:           137 16% 92%;  /* #E6EDE8 */
 
-    --card:                 24 10% 12%;
-    --card-foreground:      40 30% 92%;
+    --card:                 150 14% 8%;   /* #121815 */
+    --card-foreground:      137 16% 92%;
 
-    --popover:              24 10% 12%;
-    --popover-foreground:   40 30% 92%;
+    --popover:              150 14% 8%;
+    --popover-foreground:   137 16% 92%;
 
-    --primary:              40 30% 92%;
-    --primary-foreground:   24 12% 10%;
+    --primary:              137 16% 92%;
+    --primary-foreground:   150 15% 5%;
 
-    --secondary:            24 8% 17%;
-    --secondary-foreground: 40 30% 92%;
+    --secondary:            150 14% 11%;
+    --secondary-foreground: 137 16% 92%;
 
-    --muted:                24 8% 17%;
-    --muted-foreground:     40 11% 66%;
+    --muted:                150 14% 11%;  /* #18201C */
+    --muted-foreground:     147 10% 60%;  /* #8FA398 — 7.2:1 on bg */
 
-    /* brightened blue for contrast on dark */
-    --accent:               217 91% 68%;
-    --accent-foreground:    24 14% 10%;
+    /* copper trace — 7.7:1 on bg */
+    --accent:               25 68% 62%;   /* #E0915A */
+    --accent-foreground:    150 15% 5%;
 
-    --destructive:          0 70% 58%;
-    --destructive-foreground: 40 30% 96%;
+    --signal:               153 62% 57%;  /* #4FD69A */
+    --signal-foreground:    150 15% 5%;
 
-    --border:               40 8% 22%;
-    --input:                40 8% 22%;
-    --ring:                 217 91% 68%;
+    --destructive:          0 70% 60%;
+    --destructive-foreground: 150 15% 5%;
+
+    --border:               147 15% 14%;  /* #1F2A24 */
+    --input:                147 15% 14%;
+    --ring:                 25 68% 62%;
+
+    --grid-dot:             137 16% 92% / 0.07;
   }
 }
 
@@ -77,119 +94,94 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* soft warm glow behind the top of the page */
-    background-image: radial-gradient(
-      1100px 520px at 50% -8%,
-      hsl(40 65% 88% / 0.55),
-      transparent 70%
-    );
-    background-attachment: fixed;
-    background-repeat: no-repeat;
   }
   ::selection {
-    background: hsl(var(--accent) / 0.18);
+    background: hsl(var(--accent) / 0.22);
   }
 }
 
-/* faint paper grain for editorial texture */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* dark-theme background: cool top glow + invert grain so it reads on dark */
-.dark body {
-  background-image: radial-gradient(
-    1100px 520px at 50% -8%,
-    hsl(217 50% 30% / 0.16),
-    transparent 70%
-  );
-}
-.dark body::after {
-  filter: invert(1);
-  opacity: 0.03;
-}
-
-/* gentle drifting ambient background */
-.ambient {
+/* --- PCB substrate: dot-pitch grid + probe light --------------------------- */
+.substrate {
   position: fixed;
   inset: 0;
   z-index: -10;
   overflow: hidden;
   pointer-events: none;
 }
-.ambient-blob {
+.substrate-grid {
   position: absolute;
+  inset: 0;
+  background-image: radial-gradient(hsl(var(--grid-dot)) 1px, transparent 1.2px);
+  background-size: 24px 24px;
+  /* fade the grid out toward the bottom so long pages stay calm */
+  mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+}
+.substrate-probe {
+  position: absolute;
+  left: -30vw;
+  top: -30vw;
+  width: 60vw;
+  height: 60vw;
   border-radius: 9999px;
-  filter: blur(90px);
+  background: radial-gradient(circle, hsl(var(--accent) / 0.07), transparent 65%);
   will-change: transform;
 }
-.blob-a {
-  top: -12%;
-  left: -8%;
-  width: 42vw;
-  height: 42vw;
-  background: radial-gradient(circle, hsl(35 92% 58% / 0.18), transparent 70%);
-  animation: drift-a 28s ease-in-out infinite;
-}
-.blob-b {
-  top: 18%;
-  right: -12%;
-  width: 38vw;
-  height: 38vw;
-  background: radial-gradient(circle, hsl(var(--accent) / 0.16), transparent 70%);
-  animation: drift-b 34s ease-in-out infinite;
-}
-.blob-c {
-  bottom: -14%;
-  left: 28%;
-  width: 36vw;
-  height: 36vw;
-  background: radial-gradient(circle, hsl(350 80% 70% / 0.12), transparent 70%);
-  animation: drift-c 40s ease-in-out infinite;
-}
-.dark .ambient {
-  opacity: 0.55;
-}
-.dark .blob-b {
-  background: radial-gradient(circle, hsl(var(--accent) / 0.24), transparent 70%);
+.dark .substrate-probe {
+  background: radial-gradient(circle, hsl(var(--accent) / 0.09), transparent 65%);
 }
 
-@keyframes drift-a {
-  0%,
-  100% {
-    transform: translate(-6%, -4%) scale(1);
-  }
-  50% {
-    transform: translate(5%, 4%) scale(1.14);
-  }
+/* --- Chip package frame: pin-1 dot + corner ticks --------------------------- */
+.chip-frame {
+  position: relative;
 }
-@keyframes drift-b {
-  0%,
-  100% {
-    transform: translate(5%, 6%) scale(1.1);
-  }
-  50% {
-    transform: translate(-4%, -3%) scale(1);
-  }
+.chip-frame::before {
+  /* pin-1 indicator */
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: hsl(var(--accent) / 0.7);
+  pointer-events: none;
 }
-@keyframes drift-c {
-  0%,
-  100% {
-    transform: translate(-4%, 5%) scale(1);
+.chip-frame::after {
+  /* corner registration ticks */
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  --t: 8px;
+  --c: hsl(var(--accent) / 0.55);
+  background:
+    linear-gradient(var(--c), var(--c)) top right / var(--t) 1px,
+    linear-gradient(var(--c), var(--c)) top right / 1px var(--t),
+    linear-gradient(var(--c), var(--c)) bottom left / var(--t) 1px,
+    linear-gradient(var(--c), var(--c)) bottom left / 1px var(--t),
+    linear-gradient(var(--c), var(--c)) bottom right / var(--t) 1px,
+    linear-gradient(var(--c), var(--c)) bottom right / 1px var(--t);
+  background-repeat: no-repeat;
+}
+
+/* --- Signal pulse along SVG traces ----------------------------------------- */
+.trace-pulse {
+  stroke-dasharray: 6 200;
+  animation: trace-run 3.2s linear infinite;
+}
+@keyframes trace-run {
+  from {
+    stroke-dashoffset: 206;
   }
-  50% {
-    transform: translate(4%, -5%) scale(1.18);
+  to {
+    stroke-dashoffset: 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ambient-blob {
+  .trace-pulse {
     animation: none;
+    opacity: 0;
   }
 }
 

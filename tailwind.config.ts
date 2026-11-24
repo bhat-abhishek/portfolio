@@ -25,7 +25,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
         display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
-        serif: ["var(--font-serif)", "ui-serif", "Georgia", "serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,6 +52,10 @@ const config = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+        },
+        signal: {
+          DEFAULT: "hsl(var(--signal))",
+          foreground: "hsl(var(--signal-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -83,8 +87,9 @@ const config = {
       },
       boxShadow: {
         input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
-        soft: "0 1px 2px rgba(50,40,30,0.04), 0 8px 24px -12px rgba(50,40,30,0.12)",
-        lift: "0 2px 4px rgba(50,40,30,0.05), 0 18px 40px -16px rgba(50,40,30,0.20)",
+        // hairline depth: chips sit flat on the board; hover = faint copper glow
+        soft: "0 1px 0 hsl(var(--foreground) / 0.03)",
+        lift: "0 0 0 1px hsl(var(--accent) / 0.35), 0 10px 30px -14px hsl(var(--accent) / 0.35)",
       },
     },
   },

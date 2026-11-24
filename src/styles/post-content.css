@@ -1,0 +1,72 @@
+/* Shared by the Tiptap editor (.ProseMirror gets .post-content) and the public
+   article (PostBody). One source of truth → what you write is what publishes. */
+
+.post-content {
+  @apply text-base text-foreground/90;
+}
+
+.post-content h1 {
+  @apply mt-10 font-display text-3xl tracking-tight text-foreground;
+}
+.post-content h2 {
+  @apply mt-10 font-display text-2xl tracking-tight text-foreground;
+}
+.post-content h3 {
+  @apply mt-8 font-display text-xl tracking-tight text-foreground;
+}
+.post-content p {
+  @apply mt-5 leading-relaxed;
+}
+.post-content a {
+  @apply font-medium text-accent underline underline-offset-4 hover:opacity-80;
+}
+.post-content ul {
+  @apply mt-5 list-disc space-y-2 pl-6 marker:text-accent/60;
+}
+.post-content ol {
+  @apply mt-5 list-decimal space-y-2 pl-6 marker:text-muted-foreground;
+}
+.post-content li > ul,
+.post-content li > ol {
+  @apply mt-2;
+}
+.post-content blockquote {
+  @apply mt-6 border-l-2 border-accent/50 pl-5 italic text-muted-foreground;
+}
+.post-content hr {
+  @apply my-10 border-border;
+}
+.post-content img {
+  @apply mt-6 rounded-xl border border-border;
+}
+.post-content pre {
+  @apply mt-6 overflow-x-auto rounded-xl border border-border p-4 text-sm;
+  background: #0d1117;
+}
+.post-content pre code {
+  @apply bg-transparent p-0 text-inherit;
+}
+.post-content :not(pre) > code {
+  @apply rounded bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground;
+}
+
+/* Embeds (generic iframe) and YouTube node — responsive 16:9 */
+.post-content .embed,
+.post-content div[data-youtube-video] {
+  @apply mt-6 overflow-hidden rounded-xl border border-border;
+  aspect-ratio: 16 / 9;
+}
+.post-content .embed iframe,
+.post-content div[data-youtube-video] iframe {
+  @apply h-full w-full;
+  display: block;
+}
+
+/* Editor-only: placeholder on the first empty line */
+.post-content p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply text-muted-foreground;
+  float: left;
+  height: 0;
+  pointer-events: none;
+}

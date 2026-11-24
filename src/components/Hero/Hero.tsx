@@ -6,6 +6,7 @@ import { profile } from "@/lib/config";
 import { Button } from "@/components/ui/button";
 import ContactIcons from "./ContactIcons";
 import Terminal from "./Terminal";
+import Chip from "./Chip";
 
 const container = {
   hidden: {},
@@ -35,16 +36,20 @@ const Hero = () => {
         >
           <motion.p
             variants={item}
-            className="font-serif text-2xl italic text-muted-foreground"
+            className="flex items-center gap-3 font-mono text-sm uppercase tracking-[0.18em] text-muted-foreground"
           >
-            Hi, I&apos;m {profile.name}
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-60 motion-reduce:animate-none" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-signal" />
+            </span>
+            {profile.role}
           </motion.p>
 
           <motion.h1
             variants={item}
-            className="font-display text-5xl font-medium leading-[1.04] tracking-tight text-foreground md:text-6xl lg:text-7xl"
+            className="font-display text-5xl font-semibold leading-[1.04] tracking-tight text-foreground md:text-6xl lg:text-7xl"
           >
-            {profile.role}
+            {profile.name}
           </motion.h1>
 
           <motion.p
@@ -61,7 +66,7 @@ const Hero = () => {
             <Button
               asChild
               size="lg"
-              className="rounded-full px-7 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift"
+              className="rounded-md px-7 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift"
             >
               <Link href="#contact">Get in touch</Link>
             </Button>
@@ -69,7 +74,7 @@ const Hero = () => {
               asChild
               size="lg"
               variant="outline"
-              className="rounded-full border-border bg-transparent px-7 transition-all hover:-translate-y-0.5"
+              className="rounded-md border-border bg-transparent px-7 transition-all hover:-translate-y-0.5"
             >
               <Link href="#projects">View work</Link>
             </Button>
@@ -84,8 +89,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="w-full lg:basis-2/5"
+          className="flex w-full flex-col gap-6 lg:basis-2/5"
         >
+          <Chip />
           <Terminal />
         </motion.div>
       </div>

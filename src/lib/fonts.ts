@@ -1,25 +1,21 @@
-import { Inter, Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
+import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 
-// Body text
-export const sans = Inter({
+// Body text — the engineering-docs face
+export const sans = IBM_Plex_Sans({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
 });
 
-// Headings / display
-export const display = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-display",
-  display: "swap",
-});
+// Headings / display — exposes `--font-geist-sans`, aliased to --font-display in globals.css
+export const display = GeistSans;
 
-// Editorial accents (eyebrows, emphasis)
-export const serif = Instrument_Serif({
+// Silkscreen labels, pin names, data, code
+export const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
   display: "swap",
 });

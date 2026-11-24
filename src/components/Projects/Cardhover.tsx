@@ -31,13 +31,13 @@ export const ProjectsGrid = ({ items }: { items: Project[] }) => {
           <Link
             href={normalizeHref(project.link)}
             target="_blank"
-            className="group relative flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lift"
+            className="chip-frame group relative flex h-full flex-col rounded-lg border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lift"
           >
             <div className="flex items-start justify-between gap-4">
               <h3 className="font-display text-xl text-foreground">
                 {project.title}
               </h3>
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground">
                 <IconArrowUpRight className="h-4 w-4" />
               </span>
             </div>

@@ -5,6 +5,7 @@ import Skills from "@/components/Skills/Skills";
 import Contact from "@/components/Contact/Contact";
 import ProjectsV2 from "@/components/Projects/Projects";
 import Experiences from "@/components/Experience/Experience";
+import LatestWriting from "@/components/Blog/LatestWriting";
 import Navbar from "@/components/Navbar/Navbar";
 import "../components/Navbar/navlink.styles.css";
 import { useState, useEffect } from "react";
@@ -63,6 +64,9 @@ export default function Home() {
         </section>
         <section id="skills" key="skills">
           <Skills />
+        </section>
+        <section id="writing" key="writing">
+          <LatestWriting />
         </section>
         <section id="contact" key="contact">
           <Contact />

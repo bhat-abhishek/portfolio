@@ -4,12 +4,12 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/components/footer/Footer";
 import AmbientBackground from "@/components/ui/AmbientBackground";
-import { sans, display, serif } from "@/lib/fonts";
+import { sans, display, mono } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "Abhishek Bhat — Full Stack Developer",
+  title: "Abhishek Bhat — Senior Core Platform Engineer",
   description:
-    "Portfolio of Abhishek Bhat, a full stack developer building scalable backends and clean, fast web apps.",
+    "Portfolio of Abhishek Bhat, a senior core platform engineer building production infrastructure for agentic AI: agent runtime, observability, cloud-agnostic infra, identity, and multi-tenancy.",
 };
 
 // Dark is the default. Only opt out if the visitor explicitly chose light.
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`dark scroll-smooth ${sans.variable} ${display.variable} ${serif.variable}`}
+      className={`dark scroll-smooth ${sans.variable} ${display.variable} ${mono.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

@@ -17,7 +17,7 @@ const ThemeToggle = () => {
       type="button"
       onClick={toggle}
       aria-label="Toggle dark mode"
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-accent/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
       <IconMoon className="block h-4 w-4 dark:hidden" />
       <IconSun className="hidden h-4 w-4 dark:block" />

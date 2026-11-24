@@ -55,14 +55,14 @@ const ContactForm = () => {
         ref={successRef}
         tabIndex={-1}
         aria-live="polite"
-        className="max-w-xl rounded-2xl border border-border bg-card p-8 shadow-soft outline-none"
+        className="chip-frame max-w-xl rounded-lg border border-border bg-card p-8 shadow-soft outline-none"
       >
         <p className="font-display text-xl text-foreground">Thanks — message sent.</p>
         <p className="mt-2 text-muted-foreground">I&apos;ll get back to you soon.</p>
         <Button
           type="button"
           variant="outline"
-          className="mt-6 rounded-full"
+          className="mt-6 rounded-md"
           onClick={() => setStatus("idle")}
         >
           Send another
@@ -168,7 +168,7 @@ const ContactForm = () => {
             type="submit"
             size="lg"
             disabled={submitting}
-            className="rounded-full px-7 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift disabled:translate-y-0 disabled:opacity-60"
+            className="rounded-md px-7 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift disabled:translate-y-0 disabled:opacity-60"
           >
             {submitting ? "Sending…" : "Send message"}
           </Button>

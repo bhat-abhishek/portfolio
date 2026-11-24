@@ -5,6 +5,7 @@ import {
   useTransform,
   motion,
 } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
@@ -18,8 +19,8 @@ interface TimelineEntry {
 
 const CurrentDot = () => (
   <span className="relative flex h-2 w-2">
-    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
-    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-60" />
+    <span className="relative inline-flex h-2 w-2 rounded-full bg-signal" />
   </span>
 );
 
@@ -47,13 +48,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div className="w-full" ref={containerRef}>
       <div className="pb-10">
-        <span className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-          <span className="h-px w-8 bg-accent/50" />
-          Career
-        </span>
-        <h2 className="mt-4 font-display text-3xl tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          Experience
-        </h2>
+        <SectionHeading section="experience" />
         <p className="mt-4 max-w-sm text-sm text-muted-foreground md:text-base">
           A look at where I&apos;ve worked and what I&apos;ve built along the
           way.
@@ -67,10 +62,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-background flex items-center justify-center">
-                <div className="h-4 w-4 rounded-full bg-foreground p-2" />
+                <div className="h-3.5 w-3.5 rounded-[2px] border-2 border-accent bg-background" />
               </div>
               <div className="hidden md:block md:pl-20">
-                <h3 className="font-display text-xl md:text-5xl font-medium tracking-tight text-foreground">
+                <h3 className="font-display text-xl md:text-5xl font-semibold tracking-tight text-foreground">
                   {item.company}
                 </h3>
                 <p className="mt-1 text-lg font-medium text-muted-foreground">

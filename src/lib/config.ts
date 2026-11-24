@@ -1,44 +1,60 @@
 export const profile = {
   name: "Abhishek Bhat",
-  role: "Full Stack Developer",
-  tagline: "I build scalable backends and clean, fast web apps.",
+  role: "Senior Engineer",
+  tagline:
+    "I build production infrastructure for agentic AI — agent runtime, observability, cloud-agnostic infra, identity, and multi-tenancy.",
 };
 
 export const highlights = [
-  { label: "Focus", value: "Backend & scalable systems" },
-  { label: "Stack", value: "Go · TypeScript · React" },
-  { label: "Experience", value: "Founding engineer" },
+  { label: "Focus", value: "Agent runtime & platform infra" },
+  { label: "Stack", value: "Python · TypeScript · Go" },
+  { label: "Scale", value: "10M+ agent runs / month traced" },
   { label: "Status", value: "Open to opportunities" },
 ];
 
+export const terminalMeta = { port: "UART0 · 115200 baud", status: "Online" };
+
+export const terminalScript = [
+  { kind: "cmd", text: "whoami" },
+  { kind: "out", text: "abhishek, senior core platform engineer @ lyzr ai" },
+  { kind: "cmd", text: "cat focus.txt" },
+  { kind: "out", text: "agent runtime · observability · multi-tenancy" },
+  { kind: "cmd", text: "deploy --cloud aws,azure,gcp" },
+  { kind: "ok", text: "20+ environments, zero app code changes" },
+] as const;
+
 export const about = {
   paragraphs: [
-    "I'm a full-stack developer who started out as a founding engineer — building and scaling backend architecture from the ground up. I'm most at home designing systems that stay fast and reliable as they grow.",
-    "My range runs from cloud infrastructure and DevOps pipelines to polished React and Next.js frontends. I care about clean abstractions, sensible trade-offs, and shipping work that holds up in production.",
+    "I'm a platform engineer building the production backbone of an enterprise agentic AI platform at Lyzr AI — the runtime every agent executes on, the tracing that makes it observable, and the identity and tenancy layers that make it enterprise-ready.",
+    "I started out as a founding engineer, building backends from the ground up. Today I spend my time on inference loops, LLM gateways, OpenTelemetry pipelines, and cloud-agnostic abstractions — clean interfaces, sensible trade-offs, and systems that hold up at scale.",
   ],
 };
 
 export const experiences = [
   {
     company: "Lyzr AI",
-    role: "Software Developer",
+    role: "Senior Core Platform Engineer",
     period: "Feb 2025 — Present",
     location: "Bangalore, India",
     current: true,
     bullets: [
-      "Owned agentic-framework observability end-to-end, cutting agent debugging time 60% with OpenTelemetry distributed tracing and a ClickHouse ingestion pipeline for real-time token and latency analytics.",
-      "Led a cloud-agnostic abstraction enabling AWS + Azure deployment with zero application changes, shipped as the open-source lyzr-cloudrift package on PyPI.",
+      "Designed and shipped the agent runtime every platform agent executes on — an inference loop wiring RAG retrieval, a tool gateway for tool/MCP registration, schema validation and execution, and a pluggable LLM gateway that swaps providers without agent code changes.",
+      "Cut token usage and time-to-first-token on multi-turn runs via prompt caching in the runtime's LLM layer, reusing stable system prompts and tool schemas.",
+      "Shipped the Lyzr MCP server, letting developers create, invoke, and interact with agents from Claude Code, Codex, and any MCP client.",
+      "Owned end-to-end agent observability — tracing 10M+ agent invocations a month on SaaS with OpenTelemetry GenAI-conformant spans and a ClickHouse analytics pipeline for tokens, P95/P99 latency, and per-agent cost, cutting debugging time 60%.",
+      "Led the cloud-agnostic abstraction running 20+ environments across AWS, Azure, and GCP with zero application code changes, released as the open-source lyzr-cloudrift package on PyPI.",
       "Built usage metering and RBAC with per-tenant LLM token and invocation tracking to power cost attribution, monetization, and enterprise access control.",
-      "Federated enterprise identity through a SAML/OIDC brokering layer and enabled authenticated tool-calling via unified SSO and OAuth token brokering.",
-      "Prototyped AI agents and RAG solutions for enterprise PoCs, contributing to $1M+ in closed multi-year deployments.",
+      "Federated enterprise identity providers via a SAML/OIDC brokering layer and enabled authenticated agent tool calls through unified SSO and OAuth token brokering.",
     ],
     tech: [
       "Python",
       "FastAPI",
+      "MCP",
       "OpenTelemetry",
       "ClickHouse",
       "AWS",
       "Azure",
+      "GCP",
       "Redis",
     ],
   },
@@ -48,11 +64,10 @@ export const experiences = [
     period: "May 2023 — Sep 2024",
     location: "Bangalore, India",
     bullets: [
-      "Architected the platform's core backend with Node.js and MongoDB, owning service reliability and schema design.",
-      "Cut notification latency under 100ms with a real-time WebSocket + Redis pub/sub system.",
-      "Reduced incident response time 40% by adding observability with Prometheus, Grafana, and Loki.",
+      "Architected the platform's end-to-end backend with Node.js and MongoDB, owning service reliability and schema design for the core APIs.",
+      "Cut notification latency under 100ms with real-time WebSockets and Redis Pub/Sub.",
+      "Reduced incident response time 40% with Prometheus, Grafana, and Loki monitoring for queries, API performance, and memory.",
       "Automated CI/CD with GitHub Actions and AWS, cutting deploys from 1 hour to 15 minutes.",
-      "Improved API response times 30% through caching, connection pooling, and schema optimization.",
     ],
     tech: ["Node.js", "MongoDB", "Redis", "WebSockets", "AWS", "GitHub Actions"],
   },
@@ -70,6 +85,7 @@ export const experiences = [
   },
   {
     company: "Prakash Bharati",
+    hidden: true,
     role: "Webmaster Intern",
     period: "",
     location: "",
@@ -80,6 +96,23 @@ export const experiences = [
     tech: ["HTML", "CSS", "JavaScript"],
   },
 ];
+
+export const skills = [
+  { name: "Python", icon: "python" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Go", icon: "go" },
+  { name: "FastAPI", icon: "fastapi" },
+  { name: "NestJS", icon: "nestjs" },
+  { name: "Next.js", icon: "nextjs" },
+  { name: "Kafka", icon: "kafka" },
+  { name: "Redis", icon: "redis" },
+  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "MongoDB", icon: "mongodb" },
+  { name: "ClickHouse", icon: "clickhouse" },
+  { name: "OpenTelemetry", icon: "opentelemetry" },
+  { name: "Docker", icon: "docker" },
+  { name: "Terraform", icon: "terraform" },
+] as const;
 
 export const socials = [
   {
@@ -135,9 +168,29 @@ export const projects = [
       "Highly scalable chatting application with MicroServices architecture",
     link: "https://github.com/bhat-abhishek/chat-app",
   },
-  {
-    title: "Portfolio",
-    description: "Personal portfolio websie",
-    link: "https://abhishekbhat.com",
-  },
 ];
+
+// Section headings. `refdes` is printed like a PCB silkscreen reference designator.
+export const sections = {
+  about: { refdes: "U1", label: "About", title: "A bit about me" },
+  experience: { refdes: "U2", label: "Career", title: "Experience" },
+  projects: { refdes: "U3", label: "Work", title: "Selected projects" },
+  skills: { refdes: "U4", label: "Toolkit", title: "Tech I work with" },
+  writing: { refdes: "U5", label: "Writing", title: "Latest writing" },
+  blog: { refdes: "U5", label: "Writing", title: "Thoughts & notes" },
+  contact: { refdes: "J1", label: "I/O", title: "Get in touch" },
+} as const;
+
+export type SectionKey = keyof typeof sections;
+
+// Hero chip: the platform drawn as a package with a labelled pinout.
+export const chip = {
+  part: "AB-01",
+  name: "CORE PLATFORM",
+  marking: "LYZR · BLR · 2026",
+  pins: {
+    left: ["RUNTIME", "LLM_GW", "TOOL_GW", "MCP"],
+    right: ["OTEL", "METER", "RBAC", "SSO"],
+    top: ["AWS", "AZURE", "GCP"],
+  },
+};
