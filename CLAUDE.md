@@ -53,6 +53,6 @@ Quick reference:
 
 ## Gotchas
 
-- **Package manager:** repo has both `yarn.lock` and `pnpm-lock.yaml`; the installed store is **pnpm** (`node_modules/.pnpm`). Install with `pnpm add`. A stale `.next` can throw a `@vercel/analytics` vendor-chunk 500 — fix with `rm -rf .next` and restart.
+- **Package manager:** **pnpm** only (`pnpm-lock.yaml`); don't reintroduce `yarn.lock`, because Vercel picks it up and fails on missing deps. `yarn dev`/`yarn build` still work as script runners. Install with `pnpm add`. A stale `.next` can throw a `@vercel/analytics` vendor-chunk 500 — fix with `rm -rf .next` and restart.
 - `yarn build` fails at "collect page data" for `/blog/[slug]` when the Postgres DB is unreachable; compilation itself is fine.
 - `src/components/Hero/Highlights.tsx` is dead code (imported nowhere). Don't wire it back without intent.
