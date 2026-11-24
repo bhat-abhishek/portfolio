@@ -54,5 +54,5 @@ Quick reference:
 ## Gotchas
 
 - **Package manager:** **pnpm** only (`pnpm-lock.yaml`); don't reintroduce `yarn.lock`, because Vercel picks it up and fails on missing deps. `yarn dev`/`yarn build` still work as script runners. Install with `pnpm add`. A stale `.next` can throw a `@vercel/analytics` vendor-chunk 500 — fix with `rm -rf .next` and restart.
-- `yarn build` fails at "collect page data" for `/blog/[slug]` when the Postgres DB is unreachable; compilation itself is fine.
+- Public blog reads in `src/lib/blog.ts` (`publicRead`) fall back to empty/null when the DB is unreachable or `DATABASE_URL` is unset, so builds never depend on the DB. Admin reads still throw. A missing blog therefore means checking server logs for `[blog] … failed`.
 - `src/components/Hero/Highlights.tsx` is dead code (imported nowhere). Don't wire it back without intent.
